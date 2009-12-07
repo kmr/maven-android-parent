@@ -6,12 +6,43 @@
 		<version>1.0</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-  <groupId>net.necomimi</groupId>
+  <groupId>net.necomimi.android</groupId>
   <artifactId>maven-android-parent</artifactId>
   <packaging>pom</packaging>
   <version>1.0</version>
   <name>maven-android-parent</name>
   <description>necomimi.net maven android parent setting project.</description>
-  <dependencies>
-  </dependencies>
+  <properties>
+    <v.android.android>2.0.1</v.android.android>
+  </properties>
+  <build>
+    <pluginManagement>
+      <plugins>
+      <plugin>
+	        <artifactId>maven-compiler-plugin</artifactId>
+          <version>${v.maven-compiler-plugin}</version>
+	        <configuration>
+		        <includes>
+		          <include>src/main/java</include>
+              <include>gen</include>
+		        </includes>
+            <testIncludes>
+              <include>src/test/java</include>
+              <include>gen</include>
+            </testIncludes>
+	        </configuration>
+	      </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <dependencyManagement>
+	  <dependencies>
+	    <dependency>
+	      <groupId>android</groupId>
+	      <artifactId>android</artifactId>
+	      <version>${v.android.android}</version>
+	      <scope>provided</scope>
+	    </dependency>
+	  </dependencies>
+  </dependencyManagement>
 </project>
