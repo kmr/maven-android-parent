@@ -16,6 +16,36 @@
     <v.android.android>2.0.1</v.android.android>
   </properties>
   <build>
+<!--
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>gen</directory>
+        <includes>
+          <include>**/*.java</include>
+        </includes>
+        <excludes>
+          <exclude>.dummy</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+      <testResource>
+        <directory>gen</directory>
+        <includes>
+          <include>**/*.java</include>
+        </includes>
+        <excludes>
+          <exclude>.dummy</exclude>
+        </excludes>
+      </testResource>
+    </testResources>
+    -->
     <pluginManagement>
       <plugins>
       <plugin>
@@ -32,6 +62,36 @@
             </testIncludes>
 	        </configuration>
 	      </plugin>
+	      <plugin>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <version>${v.maven-eclipse-plugin}</version>
+          <configuration>
+            <additionalProjectnatures>
+              <projectnature>com.android.ide.eclipse.adt.AndroidNature</projectnature>
+            </additionalProjectnatures>
+            <additionalBuildcommands>
+							<buildCommand>
+								<name>com.android.ide.eclipse.adt.ResourceManagerBuilder</name>
+								<arguments>
+								</arguments>
+							</buildCommand>
+              <buildCommand>
+                <name>com.android.ide.eclipse.adt.PreCompilerBuilder</name>
+                <arguments>
+                </arguments>
+              </buildCommand>
+              <buildCommand>
+                <name>com.android.ide.eclipse.adt.ApkBuilder</name>
+                <arguments>
+                </arguments>
+              </buildCommand>
+            </additionalBuildcommands>
+            <classpathContainers>
+              <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+              <classpathContainer>com.android.ide.eclipse.adt.ANDROID_FRAMEWORK</classpathContainer>
+            </classpathContainers>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
